@@ -20,11 +20,14 @@
     }
   });
 
-  define(["jquery", "underscore", "Backbone", "views/Container"], function($, _, Backbone, Container) {
+  define(["jquery", "underscore", "Backbone", "./Router"], function($, _, Backbone, Router) {
     return $(function() {
-      return new Container({
-        el: "body"
-      }).render();
+      new Router().on('viewChange', function(klazz, name, action) {
+        return new klazz({
+          el: 'body'
+        }).render();
+      });
+      return Backbone.history.start();
     });
   });
 
