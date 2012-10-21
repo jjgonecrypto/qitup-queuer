@@ -1,0 +1,23 @@
+{
+    "name":         "qitup-queuer"
+  , "description":  "live song requestor for qitup.fm"
+  , "version":      "0.0.1"
+  , "author":       "tiltnyc (http://github.com/justinjmoses/qitup-queuer)"
+  , "contributors": [
+      {
+        "name": "justin j. moses"
+      , "email": "justinjmoses@gmail.com"
+      }
+    ]
+  , "engines": {
+      "node"        : "0.8.x"
+    , "npm"         : "1.1.x"
+    }
+  , "devDependencies": {
+    "stylus"            : ">= 0.13.7"
+  }
+  , "dependencies": {
+    "coffee-script"     : ">= 1.3.3"
+  , "connect"           : "*"
+  }
+}
