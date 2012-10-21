@@ -1,6 +1,6 @@
 (function() {
 
-  define(["Backbone", "underscore", 'text!./results.html'], function(Backbone, _, viewTemplate) {
+  define(["Backbone", "underscore", 'text!./results.html', "eventbus"], function(Backbone, _, viewTemplate, bus) {
     return Backbone.View.extend({
       initialize: function() {
         var _this = this;
@@ -9,7 +9,9 @@
         this.entries.on("loaded", function() {
           return _this.render();
         });
-        return this.query = "temp!";
+        return bus.on("search:query", function(query) {
+          return _this.query = query;
+        });
       },
       render: function() {
         this.$el.html(_.template(viewTemplate, {

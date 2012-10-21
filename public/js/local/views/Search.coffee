@@ -1,4 +1,4 @@
-define ["Backbone", "underscore", "text!./search.html"], (Backbone, _, viewTemplate) ->
+define ["Backbone", "underscore", "text!./search.html", "eventbus"], (Backbone, _, viewTemplate, bus) ->
   Backbone.View.extend
     initialize: ->
       @lastQuery = undefined
@@ -16,7 +16,7 @@ define ["Backbone", "underscore", "text!./search.html"], (Backbone, _, viewTempl
       @$('.loading').show()
 
       @lastQuery = @$(evt.target).val() 
-      #bus.trigger "search:query", @lastQuery 
+      bus.trigger "search:query", @lastQuery 
 
       @entries.tracks.load query, (err) =>
         console.log(err) if err

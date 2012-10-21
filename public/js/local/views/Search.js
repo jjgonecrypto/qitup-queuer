@@ -1,6 +1,6 @@
 (function() {
 
-  define(["Backbone", "underscore", "text!./search.html"], function(Backbone, _, viewTemplate) {
+  define(["Backbone", "underscore", "text!./search.html", "eventbus"], function(Backbone, _, viewTemplate, bus) {
     return Backbone.View.extend({
       initialize: function() {
         this.lastQuery = void 0;
@@ -19,6 +19,7 @@
         query = this.$(evt.target).serialize();
         this.$('.loading').show();
         this.lastQuery = this.$(evt.target).val();
+        bus.trigger("search:query", this.lastQuery);
         return this.entries.tracks.load(query, function(err) {
           if (err) console.log(err);
           return _this.entries.artists.load(query, function(err) {

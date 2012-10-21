@@ -1,12 +1,11 @@
-define ["Backbone", "underscore", 'text!./results.html'], (Backbone, _, viewTemplate) ->
+define ["Backbone", "underscore", 'text!./results.html', "eventbus"], (Backbone, _, viewTemplate, bus) ->
   Backbone.View.extend
     initialize: ->
       @query = undefined
       @entries = @options.entries
       @entries.on "loaded", () => @render()
-      #bus.on "search:query", (query) => @query = query
-      @query = "temp!" #temp!
-      
+      bus.on "search:query", (query) => @query = query
+
     render: ->
       @$el.html _.template viewTemplate, 
         entries: 
