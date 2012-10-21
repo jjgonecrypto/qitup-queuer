@@ -1,4 +1,4 @@
-define ["Backbone", "underscore", "text!./container.html"], (Backbone, _, viewTemplate) ->
+define ["Backbone", "underscore", "text!./home.html"], (Backbone, _, viewTemplate) ->
   Backbone.View.extend 
     initialize: ->
 

@@ -1,6 +1,6 @@
 (function() {
 
-  define(["Backbone", "underscore", "text!./container.html"], function(Backbone, _, viewTemplate) {
+  define(["Backbone", "underscore", "text!./home.html"], function(Backbone, _, viewTemplate) {
     return Backbone.View.extend({
       initialize: function() {},
       render: function() {

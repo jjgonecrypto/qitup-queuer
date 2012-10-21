@@ -13,8 +13,11 @@ require.config
       deps: ["underscore", "jquery"]
       exports: "Backbone"
 
-define ["jquery", "underscore", "Backbone", "views/Container"], ($, _, Backbone, Container) ->
+define ["jquery", "underscore", "Backbone", "./Router"], ($, _, Backbone, Router) ->
   $ ->
-    new Container
-      el: "body"
-    .render()
+    new Router().on 'viewChange', (klazz, name, action) ->
+      new klazz
+        el: 'body'
+      .render()  
+
+    Backbone.history.start()
