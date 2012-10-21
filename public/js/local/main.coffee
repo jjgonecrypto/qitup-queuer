@@ -11,5 +11,5 @@ require.config
 
 define ["jquery", "underscore", "Backbone"], ($, _, Backbone) ->
   $ ->
-    alert "123"
+    $("body").html "welcome to the app"
     
