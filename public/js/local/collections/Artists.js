@@ -1,6 +1,6 @@
 (function() {
 
-  define(['Backbone', 'models/artist', 'services/spotify'], function(Backbone, Artist, spotify) {
+  define(['Backbone', 'models/Artist', 'services/spotify'], function(Backbone, Artist, spotify) {
     return Backbone.Collection.extend({
       model: Artist,
       initialize: function() {},
