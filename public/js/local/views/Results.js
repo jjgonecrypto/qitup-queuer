@@ -23,16 +23,6 @@
           }
         }));
         return this;
-      },
-      show: function(evt) {
-        var found;
-        found = this.entries.findBy($(evt.target).data("href"));
-        return bus.trigger("view:track");
-      },
-      events: {
-        'click  .track': 'show',
-        'click  .artist': 'show',
-        'click  .album': 'show'
       }
     });
   });

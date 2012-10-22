@@ -9,7 +9,7 @@
     <ul class="tracks no-bullets">
       <% _.each(entries.tracks, function(track){ %>
           <li>
-            <a href="#" class="track" data-href="<%= track.href %>"><%- track.name %></a> 
+            <a href="#/request/<%= track.href %>" class="track"><%- track.name %></a> 
             by <a href="#" class="artist"><%- track.artist %></a>
           </li>
       <% }); %>
@@ -23,7 +23,7 @@
     <ul class="artists no-bullets">
       <% _.each(entries.artists, function(artist){ %>
           <li>
-            <a href="#" class="artist" data-href="<%= artist.href %>"><%- artist.name %></a>
+            <a href="#/request/<%= artist.href %>" class="artist"><%- artist.name %></a>
           </li>
       <% }); %>
     </ul>
@@ -36,7 +36,7 @@
     <ul class="albums no-bullets">
       <% _.each(entries.albums, function(album){ %>
           <li>
-            <a href="#" class="album" data-href="<%= album.href %>"><%- album.name %></a> by <a href="#" class="artist" data-href="<%= album.href %>"><%- album.artist %></a>
+            <a class="album" href="#/request/<%= album.href %>"><%- album.name %></a> by <a href="#" class="artist" data-href="<%= album.href %>"><%- album.artist %></a>
           </li>
       <% }); %>
     </ul>

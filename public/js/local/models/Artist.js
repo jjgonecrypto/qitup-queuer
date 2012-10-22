@@ -4,7 +4,8 @@
     return Backbone.Model.extend({
       defaults: {
         name: "",
-        href: ""
+        href: "",
+        type: "artist"
       }
     });
   });
