@@ -15,7 +15,7 @@ define [], () ->
     @lastQuery = query
     run.call @, url, callback
 
-  lookout: (href, callback) ->
+  lookup: (href, callback) ->
     clear()    
     url = "http://ws.spotify.com/lookup/1/.json?uri=#{href}"
     run.call @, url, callback

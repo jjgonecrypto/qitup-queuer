@@ -1,7 +1,8 @@
 define ['Backbone', 'models/Album', 'services/spotify'], (Backbone, Album, spotify) ->
   Backbone.Collection.extend
     model: Album
-
+    type: "album"
+    
     initialize: ->
 
     load: (query, callback) ->

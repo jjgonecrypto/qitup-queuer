@@ -28,7 +28,7 @@
         this.lastQuery = query;
         return run.call(this, url, callback);
       },
-      lookout: function(href, callback) {
+      lookup: function(href, callback) {
         var url;
         clear();
         url = "http://ws.spotify.com/lookup/1/.json?uri=" + href;

@@ -3,6 +3,7 @@
   define(['Backbone', 'models/Album', 'services/spotify'], function(Backbone, Album, spotify) {
     return Backbone.Collection.extend({
       model: Album,
+      type: "album",
       initialize: function() {},
       load: function(query, callback) {
         var _this = this;

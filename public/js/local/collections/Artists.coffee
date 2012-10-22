@@ -1,7 +1,8 @@
 define ['Backbone', 'models/Artist', 'services/spotify'], (Backbone, Artist, spotify) ->
   Backbone.Collection.extend
     model: Artist
-
+    type: "artist"
+    
     initialize: ->
         
     load: (query, callback) ->
