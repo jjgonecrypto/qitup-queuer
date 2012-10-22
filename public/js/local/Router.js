@@ -1,6 +1,6 @@
 (function() {
 
-  define(["views/Home"], function(Home) {
+  define(["views/Home", "views/Request"], function(Home, Request) {
     return Backbone.Router.extend({
       routes: {
         ":name/:action": "goto",
@@ -9,7 +9,8 @@
       },
       initialize: function(options) {
         return this.views = {
-          home: Home
+          home: Home,
+          request: Request
         };
       },
       goto: function(name, action) {

@@ -5,7 +5,8 @@
       defaults: {
         name: "",
         href: "",
-        artist: ""
+        artist: "",
+        type: "album"
       }
     });
   });

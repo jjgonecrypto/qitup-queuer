@@ -3,3 +3,4 @@ define ['Backbone'], (Backbone) ->
     defaults:
       name: ""
       href: ""
+      type: "artist"

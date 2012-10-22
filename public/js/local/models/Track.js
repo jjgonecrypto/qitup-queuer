@@ -7,7 +7,8 @@
         href: "",
         artist: "",
         album: "",
-        length: 1
+        length: 1,
+        type: "track"
       }
     });
   });

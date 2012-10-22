@@ -6,3 +6,4 @@ define ['Backbone'], (Backbone) ->
       artist: ""
       album: ""
       length: 1
+      type: "track"

@@ -1,0 +1,29 @@
+.loader {
+  min-height: 500px;
+  background: url("/img/loader.gif") center no-repeat;
+}
+.helper {
+  font-size: 0.9em;
+  color: #bbb;
+}
+.results {
+  margin-top: 0.5em;
+}
+.tracks,
+.artists,
+.albums {
+  font-size: 0.9em;
+}
+.tracks > li:nth-child(odd),
+.artists > li:nth-child(odd),
+.albums > li:nth-child(odd) {
+  background-color: #ddd;
+}
+.track,
+.album {
+  display: inline-block;
+  width: 20em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -4,3 +4,4 @@ define ['Backbone'], (Backbone) ->
       name: ""
       href: ""
       artist: ""
+      type: "album"

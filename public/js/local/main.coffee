@@ -18,6 +18,7 @@ define ["jquery", "underscore", "Backbone", "./Router"], ($, _, Backbone, Router
     new Router().on 'viewChange', (klazz, name, action) ->
       new klazz
         el: 'body'
+        action: action
       .render()  
 
     Backbone.history.start()
