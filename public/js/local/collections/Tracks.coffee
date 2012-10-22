@@ -6,8 +6,7 @@ define ['Backbone', 'models/Track', 'services/spotify'], (Backbone, Track, spoti
     initialize: ->
 
     load: (query, callback) ->
-
-      spotify.load query, 'track', (err, data) =>
+      spotify.load query, @type, (err, data) =>
         return callback(err) if err
 
         @reset() 

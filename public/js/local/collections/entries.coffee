@@ -21,7 +21,9 @@ define ["Backbone", "underscore"], (Backbone, _) ->
     @albums.on "loaded", (evt) => @trigger "loaded"
 
   dispatcher.findBy = (href) ->
-    attempt = (list) -> list.find (item) -> item.get("href") is href
+    attempt = (list) -> 
+      return unless list
+      list.find (item) -> item.get("href") is href
     attempt(@tracks) or attempt(@artists) or attempt(@albums)           
 
   return dispatcher

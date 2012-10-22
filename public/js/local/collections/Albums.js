@@ -7,7 +7,7 @@
       initialize: function() {},
       load: function(query, callback) {
         var _this = this;
-        return spotify.load(query, 'album', function(err, data) {
+        return spotify.load(query, this.type, function(err, data) {
           var top5;
           if (err) return callback(err);
           _this.reset();

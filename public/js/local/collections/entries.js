@@ -34,6 +34,7 @@
     dispatcher.findBy = function(href) {
       var attempt;
       attempt = function(list) {
+        if (!list) return;
         return list.find(function(item) {
           return item.get("href") === href;
         });

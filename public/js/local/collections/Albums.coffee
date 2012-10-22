@@ -2,12 +2,12 @@ define ['Backbone', 'models/Album', 'services/spotify'], (Backbone, Album, spoti
   Backbone.Collection.extend
     model: Album
     type: "album"
-    
+
     initialize: ->
 
     load: (query, callback) ->
 
-      spotify.load query, 'album', (err, data) =>
+      spotify.load query, @type, (err, data) =>
         return callback(err) if err
 
         @reset() 
