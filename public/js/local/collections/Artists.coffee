@@ -3,7 +3,7 @@ define ['Backbone', 'models/Artist', 'services/spotify'], (Backbone, Artist, spo
     model: Artist
 
     initialize: ->
-      
+        
     load: (query, callback) ->
       spotify.load query, 'artist', (err, data) =>
         return callback(err) if err

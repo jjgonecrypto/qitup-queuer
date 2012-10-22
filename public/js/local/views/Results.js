@@ -23,12 +23,6 @@
           }
         }));
         return this;
-      },
-      show: function(evt) {
-        return console.log(evt.target);
-      },
-      events: {
-        'click  .track, .artist, .album': 'show'
       }
     });
   });

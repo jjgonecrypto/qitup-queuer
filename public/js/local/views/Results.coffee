@@ -14,9 +14,3 @@ define ["Backbone", "underscore", 'text!./results.html', "eventbus"], (Backbone,
           albums: @entries.albums.toJSON()
           query: @query
       @
-
-    show: (evt) ->
-      console.log evt.target
-
-    events:
-      'click  .track, .artist, .album': 'show'

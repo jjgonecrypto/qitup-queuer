@@ -1,4 +1,4 @@
-define ["views/Home"], (Home) ->
+define ["views/Home", "views/Request"], (Home, Request) ->
   Backbone.Router.extend
 
     routes:
@@ -9,6 +9,7 @@ define ["views/Home"], (Home) ->
     initialize: (options) ->
       @views = 
         home: Home
+        request: Request
 
     goto: (name, action) ->
       klazz = @views[name] ? @views.home

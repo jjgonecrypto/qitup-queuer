@@ -1,6 +1,7 @@
 define [
   "Backbone"
   "underscore"
+  "eventbus"
   "text!./home.html"
   "collections/entries"
   "views/Search"
@@ -8,7 +9,7 @@ define [
   "collections/Tracks"
   "collections/Artists"
   "collections/Albums" 
-], (Backbone, _, viewTemplate, entries, Search, Results, Tracks, Artists, Albums) ->
+], (Backbone, _, bus, viewTemplate, entries, Search, Results, Tracks, Artists, Albums) ->
   Backbone.View.extend 
     initialize: ->
       entries.set 

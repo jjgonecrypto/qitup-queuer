@@ -24,7 +24,8 @@
     return $(function() {
       new Router().on('viewChange', function(klazz, name, action) {
         return new klazz({
-          el: 'body'
+          el: 'body',
+          action: action
         }).render();
       });
       return Backbone.history.start();
