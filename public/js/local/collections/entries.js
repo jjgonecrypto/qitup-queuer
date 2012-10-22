@@ -18,6 +18,15 @@
         return _this.trigger("loaded");
       });
     };
+    dispatcher.findBy = function(href) {
+      var attempt;
+      attempt = function(list) {
+        return list.find(function(item) {
+          return item.get("href") === href;
+        });
+      };
+      return attempt(this.tracks) || attempt(this.artists) || attempt(this.albums);
+    };
     return dispatcher;
   });
 

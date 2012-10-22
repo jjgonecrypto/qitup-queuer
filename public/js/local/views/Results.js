@@ -25,7 +25,9 @@
         return this;
       },
       show: function(evt) {
-        return console.log($(evt.target).data("href"));
+        var found;
+        found = this.entries.findBy($(evt.target).data("href"));
+        return bus.trigger("view:track");
       },
       events: {
         'click  .track': 'show',

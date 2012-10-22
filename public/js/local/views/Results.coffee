@@ -16,9 +16,12 @@ define ["Backbone", "underscore", 'text!./results.html', "eventbus"], (Backbone,
       @
 
     show: (evt) ->
-      console.log $(evt.target).data "href"
+      found = @entries.findBy $(evt.target).data("href")
+
+      bus.trigger "view:track"
+
 
     events:
-      'click  .track': 'show'
-      'click  .artist': 'show'
-      'click  .album': 'show'
+      'click  .track'   : 'show'
+      'click  .artist'  : 'show'
+      'click  .album'   : 'show'
