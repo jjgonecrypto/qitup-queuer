@@ -3,10 +3,11 @@
   define(['Backbone', 'models/Artist', 'services/spotify'], function(Backbone, Artist, spotify) {
     return Backbone.Collection.extend({
       model: Artist,
+      type: "artist",
       initialize: function() {},
       load: function(query, callback) {
         var _this = this;
-        return spotify.load(query, 'artist', function(err, data) {
+        return spotify.load(query, this.type, function(err, data) {
           var top5;
           if (err) return callback(err);
           _this.reset();

@@ -3,11 +3,11 @@
   define(['Backbone', 'models/Track', 'services/spotify'], function(Backbone, Track, spotify) {
     return Backbone.Collection.extend({
       model: Track,
-      url: '/api/v1/track',
+      type: "track",
       initialize: function() {},
       load: function(query, callback) {
         var _this = this;
-        return spotify.load(query, 'track', function(err, data) {
+        return spotify.load(query, this.type, function(err, data) {
           var top5;
           if (err) return callback(err);
           _this.reset();
