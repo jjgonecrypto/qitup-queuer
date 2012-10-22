@@ -1,4 +1,4 @@
-define ['models/album', 'services/spotify'], (Album, spotify) ->
+define ['Backbone', 'models/album', 'services/spotify'], (Backbone, Album, spotify) ->
   Backbone.Collection.extend
     model: Album
 

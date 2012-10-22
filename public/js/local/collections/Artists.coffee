@@ -1,11 +1,10 @@
-define ['models/artist', 'services/spotify'], (Artist, spotify) ->
+define ['Backbone', 'models/artist', 'services/spotify'], (Backbone, Artist, spotify) ->
   Backbone.Collection.extend
     model: Artist
 
     initialize: ->
       
     load: (query, callback) ->
-
       spotify.load query, 'artist', (err, data) =>
         return callback(err) if err
 
