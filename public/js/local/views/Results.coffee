@@ -16,7 +16,7 @@ define ["Backbone", "underscore", 'text!./results.html', "eventbus"], (Backbone,
       @
 
     show: (evt) ->
-      console.log evt
-      
+      console.log $(evt.target).data "href"
+
     events:
       'click  .track, .artist, .album': 'show'

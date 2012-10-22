@@ -1,4 +1,4 @@
-define ['models/track', 'services/spotify'], (Track, spotify) ->
+define ['Backbone', 'models/Track', 'services/spotify'], (Backbone, Track, spotify) ->
   Backbone.Collection.extend
     model: Track
     url: '/api/v1/track'

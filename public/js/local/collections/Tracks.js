@@ -1,6 +1,6 @@
 (function() {
 
-  define(['models/track', 'services/spotify'], function(Track, spotify) {
+  define(['Backbone', 'models/Track', 'services/spotify'], function(Backbone, Track, spotify) {
     return Backbone.Collection.extend({
       model: Track,
       url: '/api/v1/track',

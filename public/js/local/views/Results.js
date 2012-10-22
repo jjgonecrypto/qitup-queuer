@@ -25,7 +25,7 @@
         return this;
       },
       show: function(evt) {
-        return console.log(evt);
+        return console.log($(evt.target).data("href"));
       },
       events: {
         'click  .track, .artist, .album': 'show'
