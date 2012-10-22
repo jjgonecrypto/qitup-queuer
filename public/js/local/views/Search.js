@@ -20,15 +20,8 @@
         this.$('.loading').show();
         this.lastQuery = this.$(evt.target).val();
         bus.trigger("search:query", this.lastQuery);
-        return this.entries.tracks.load(query, function(err) {
-          if (err) console.log(err);
-          return _this.entries.artists.load(query, function(err) {
-            if (err) console.log(err);
-            return _this.entries.albums.load(query, function(err) {
-              if (err) console.log(err);
-              return _this.$('.loading').hide();
-            });
-          });
+        return this.entries.loadBy(query, function() {
+          return _this.$('.loading').hide();
         });
       },
       events: {

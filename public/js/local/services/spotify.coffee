@@ -11,11 +11,11 @@ define [], () ->
 
   load: (query, type, callback) ->
     clear query
-    url = "http://ws.spotify.com/search/1/#{type}.json?#{query}"
+    uri = "http://ws.spotify.com/search/1/#{type}.json?#{query}"
     @lastQuery = query
-    run.call @, url, callback
+    run.call @, uri, callback
 
-  lookout: (href, callback) ->
+  lookup: (href, callback) ->
     clear()    
-    url = "http://ws.spotify.com/lookup/1/.json?uri=#{href}"
-    run.call @, url, callback
+    uri = "http://ws.spotify.com/lookup/1/.json?uri=#{href}"
+    run.call @, uri, callback

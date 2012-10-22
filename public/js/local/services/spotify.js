@@ -22,17 +22,17 @@
     };
     return {
       load: function(query, type, callback) {
-        var url;
+        var uri;
         clear(query);
-        url = "http://ws.spotify.com/search/1/" + type + ".json?" + query;
+        uri = "http://ws.spotify.com/search/1/" + type + ".json?" + query;
         this.lastQuery = query;
-        return run.call(this, url, callback);
+        return run.call(this, uri, callback);
       },
-      lookout: function(href, callback) {
-        var url;
+      lookup: function(href, callback) {
+        var uri;
         clear();
-        url = "http://ws.spotify.com/lookup/1/.json?uri=" + href;
-        return run.call(this, url, callback);
+        uri = "http://ws.spotify.com/lookup/1/.json?uri=" + href;
+        return run.call(this, uri, callback);
       }
     };
   });

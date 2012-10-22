@@ -1,13 +1,12 @@
 define ['Backbone', 'models/Track', 'services/spotify'], (Backbone, Track, spotify) ->
   Backbone.Collection.extend
     model: Track
-    url: '/api/v1/track'
+    type: "track"
     
     initialize: ->
 
     load: (query, callback) ->
-
-      spotify.load query, 'track', (err, data) =>
+      spotify.load query, @type, (err, data) =>
         return callback(err) if err
 
         @reset() 

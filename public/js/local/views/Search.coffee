@@ -18,13 +18,7 @@ define ["Backbone", "underscore", "text!./search.html", "eventbus"], (Backbone, 
       @lastQuery = @$(evt.target).val() 
       bus.trigger "search:query", @lastQuery 
 
-      @entries.tracks.load query, (err) =>
-        console.log(err) if err
-        @entries.artists.load query, (err) =>
-          console.log(err) if err
-          @entries.albums.load query, (err) =>
-            console.log(err) if err
-            @$('.loading').hide()
+      @entries.loadBy query, () => @$('.loading').hide()
       
     events: 
       'keyup .spotify-lookup': 'search'
