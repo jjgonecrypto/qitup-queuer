@@ -4,5 +4,5 @@ define ["Backbone", "underscore", "text!./track.html"], (Backbone, _, viewTempla
       @track = @options.item
 
     render: ->
-      @$el.html _.template(viewTemplate, track: @track)
+      @$el.html _.template(viewTemplate, track: @track.toJSON())
       @

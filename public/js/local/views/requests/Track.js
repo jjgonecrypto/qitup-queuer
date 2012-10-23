@@ -7,7 +7,7 @@
       },
       render: function() {
         this.$el.html(_.template(viewTemplate, {
-          track: this.track
+          track: this.track.toJSON()
         }));
         return this;
       }
