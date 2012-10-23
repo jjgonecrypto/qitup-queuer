@@ -1,4 +1,13 @@
-define ["Backbone", "underscore", "text!./request.html", "collections/entries", "models/entry"], (Backbone, _, viewTemplate, entries, entry) ->
+define [
+  "Backbone"
+  "underscore"
+  "text!./request.html"
+  "collections/entries"
+  "models/entry"
+  "views/requests/track"
+  "views/requests/artist"
+  "views/requests/album"
+], (Backbone, _, viewTemplate, entries, entry, Track, Artist, Album) ->
   Backbone.View.extend
     initialize: ->
       @item = entries.findBy(@options.action)
@@ -8,5 +17,7 @@ define ["Backbone", "underscore", "text!./request.html", "collections/entries", 
         @render()
 
     render: ->
-      @$el.html _.template(viewTemplate, item: @item.toJSON()) if @item
+      type = @item.get "type"
+      klazz = if type is "artist" then Artist else if type if "album" then Album else Track
+      @$el.html new klazz(item: @item).render().el
       @

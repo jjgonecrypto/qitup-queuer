@@ -1,6 +1,6 @@
 (function() {
 
-  define(["Backbone", "underscore", "text!./request.html", "collections/entries", "models/entry"], function(Backbone, _, viewTemplate, entries, entry) {
+  define(["Backbone", "underscore", "text!./request.html", "collections/entries", "models/entry", "views/requests"], function(Backbone, _, viewTemplate, entries, entry) {
     return Backbone.View.extend({
       initialize: function() {
         var _this = this;
@@ -12,11 +12,11 @@
         });
       },
       render: function() {
-        if (this.item) {
-          this.$el.html(_.template(viewTemplate, {
-            item: this.item.toJSON()
-          }));
-        }
+        var type;
+        type = this.item.get("type");
+        this.$el.html(new klazz({
+          item: this.item
+        }).render().el);
         return this;
       }
     });
