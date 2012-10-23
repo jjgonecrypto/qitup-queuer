@@ -17,7 +17,7 @@ define ["jquery", "underscore", "Backbone", "./Router"], ($, _, Backbone, Router
   $ ->
     new Router().on 'viewChange', (klazz, name, action) ->
       new klazz
-        el: 'body'
+        el: '.content'
         action: action
       .render()  
 
