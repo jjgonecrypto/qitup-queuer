@@ -4,5 +4,5 @@ define ["Backbone", "underscore", "text!./album.html"], (Backbone, _, viewTempla
       @album = @options.item
 
     render: ->
-      @$el.html _.template(viewTemplate, album: @album)
+      @$el.html _.template(viewTemplate, album: @album.toJSON())
       @

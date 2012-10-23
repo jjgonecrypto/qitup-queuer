@@ -7,7 +7,7 @@
       },
       render: function() {
         this.$el.html(_.template(viewTemplate, {
-          album: this.album
+          album: this.album.toJSON()
         }));
         return this;
       }

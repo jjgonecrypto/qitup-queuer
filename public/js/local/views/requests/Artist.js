@@ -7,7 +7,7 @@
       },
       render: function() {
         this.$el.html(_.template(viewTemplate, {
-          artist: this.artist
+          artist: this.artist.toJSON()
         }));
         return this;
       }
