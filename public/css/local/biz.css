@@ -28,6 +28,7 @@
   text-overflow: ellipsis;
 }
 .requests .request {
+  clear: both;
   vertical-align: middle;
 }
 .requests .request:nth-child(odd) {
@@ -38,8 +39,8 @@
 }
 .requests .request label {
   float: left;
-  width: 15em;
-  margin: 1.25em;
+  width: 10em;
+  padding: 1em;
 }
 .requests .request iframe {
   width: 150px;

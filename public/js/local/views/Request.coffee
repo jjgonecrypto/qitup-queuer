@@ -10,12 +10,12 @@ define [
   requests = (item) ->
     templatize = (req) -> _.template(twitter, url: qitup.href(), i: i++, queue: qitup.queue(), request: req)
     artist:
-      random: templatize 'Play anything by "' + (item.artist ? item.name) + '"'
-      top: templatize 'Play artist "' + (item.artist ? item.name) + '"'
-    track: templatize 'Play "' + item.name + '" by "' + item.artist + '"'
+      random: templatize '@qitupfm Play anything by "' + (item.artist ? item.name) + '"'
+      top: templatize '@qitupfm Play artist "' + (item.artist ? item.name) + '"'
+    track: templatize '@qitupfm Play "' + item.name + '" by "' + item.artist + '"'
     album:
-      random: templatize 'Play anything from "' + item.name + '" by "' + item.artist + '"'
-      top: templatize 'Play from "' + item.name + '" by "' + item.artist + '"'
+      random: templatize '@qitupfm Play anything from "' + item.name + '" by "' + item.artist + '"'
+      top: templatize '@qitupfm Play from "' + item.name + '" by "' + item.artist + '"'
 
   Backbone.View.extend
     initialize: ->

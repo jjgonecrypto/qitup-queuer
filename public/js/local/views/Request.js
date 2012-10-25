@@ -15,13 +15,13 @@
       };
       return {
         artist: {
-          random: templatize('Play anything by "' + ((_ref = item.artist) != null ? _ref : item.name) + '"'),
-          top: templatize('Play artist "' + ((_ref2 = item.artist) != null ? _ref2 : item.name) + '"')
+          random: templatize('@qitupfm Play anything by "' + ((_ref = item.artist) != null ? _ref : item.name) + '"'),
+          top: templatize('@qitupfm Play artist "' + ((_ref2 = item.artist) != null ? _ref2 : item.name) + '"')
         },
-        track: templatize('Play "' + item.name + '" by "' + item.artist + '"'),
+        track: templatize('@qitupfm Play "' + item.name + '" by "' + item.artist + '"'),
         album: {
-          random: templatize('Play anything from "' + item.name + '" by "' + item.artist + '"'),
-          top: templatize('Play from "' + item.name + '" by "' + item.artist + '"')
+          random: templatize('@qitupfm Play anything from "' + item.name + '" by "' + item.artist + '"'),
+          top: templatize('@qitupfm Play from "' + item.name + '" by "' + item.artist + '"')
         }
       };
     };
