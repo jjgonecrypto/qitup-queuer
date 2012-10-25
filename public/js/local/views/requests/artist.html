@@ -1,3 +1,12 @@
-<h3>Request for "<%= item.name %>"</h3>
+<h3>Request Artist: "<%= item.name %>"</h3>
 
-<a href="https://twitter.com/intent/tweet?button_hashtag=<%= encodeURIComponent(queue) %>&text=Play%20anything%20by%20%22<%= encodeURIComponent(item.name) %>%22" target="_blank" class="twitter-hashtag-button" data-size="large" data-url="<%= url %>">Tweet your Request</a>
+<ul class="requests no-bullets">
+  <li class="request">
+    <label>Play random track from artist</label>
+    <%= requests.artist.random %>
+  </li>
+  <li class="request">
+    <label>Play top track from artist</label>
+    <%= requests.artist.top %>
+  </li>
+</ul>
