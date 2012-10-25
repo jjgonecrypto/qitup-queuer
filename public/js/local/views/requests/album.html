@@ -1,4 +1,4 @@
-<h3>Request for "<%= album.name %>"</h3>
+<h3>Request for "<%= item.name %>"</h3>
 
-<a href="https://twitter.com/intent/tweet?button_hashtag=<%= queue %>&text=Play%20anything%20from%20%22<%= album.name %>%22%20by%20%22<%= album.artist %>%22" class="twitter-hashtag-button" data-size="large" data-url="<%= url %>">Tweet your Request</a>
+<a href="https://twitter.com/intent/tweet?button_hashtag=<%= encodeURI(queue) %>&text=Play%20anything%20from%20%22<%= encodeURI(item.name) %>%22%20by%20%22<%= encodeURI(item.artist) %>%22" class="twitter-hashtag-button" data-size="large" data-url="<%= url %>">Tweet your Request</a>
 
