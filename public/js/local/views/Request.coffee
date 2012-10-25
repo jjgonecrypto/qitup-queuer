@@ -3,10 +3,9 @@ define [
   "underscore"
   "collections/entries"
   "models/entry"
-  "views/requests/Track"
-  "views/requests/Artist"
-  "views/requests/Album"
-], (Backbone, _, entries, entry, Track, Artist, Album) ->
+  "services/qitup"
+  "text!lib/twitter-script.html"
+], (Backbone, _, entries, entry, qitup, twitterScript) ->
   Backbone.View.extend
     initialize: ->
       @item = entries.findBy(@options.action)
@@ -18,6 +17,7 @@ define [
     render: ->
       return @ unless @item
       type = @item.get "type"
-      klazz = if type is "artist" then Artist else if type is "album" then Album else Track
-      @$el.html new klazz(item: @item).render().el
+      require ["text!views/requests/#{type}.html"], (template) =>
+        @$el.html _.template(template, item: @item.toJSON(), queue: qitup.queue(), url: qitup.href())
+        @$el.append twitterScript
       @
