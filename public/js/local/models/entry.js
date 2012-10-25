@@ -7,7 +7,7 @@
       return {
         name: data.name,
         href: data.href,
-        artist: (_ref = (_ref2 = (_ref3 = data.artists) != null ? (_ref4 = _ref3[0]) != null ? _ref4.name : void 0 : void 0) != null ? _ref2 : data.artist) != null ? _ref : '',
+        artist: (_ref = (_ref2 = (_ref3 = data.artists) != null ? (_ref4 = _ref3[0]) != null ? _ref4.name : void 0 : void 0) != null ? _ref2 : data.artist) != null ? _ref : data.name,
         album: (_ref5 = (_ref6 = data.album) != null ? _ref6.name : void 0) != null ? _ref5 : '',
         length: (_ref7 = data.length) != null ? _ref7 : 0
       };

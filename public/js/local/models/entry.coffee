@@ -4,7 +4,7 @@ define ["Backbone", "underscore", "services/spotify", "models/Album", "models/Tr
   parse = (data) -> 
     name: data.name
     href: data.href
-    artist: data.artists?[0]?.name ? data.artist ? ''
+    artist: data.artists?[0]?.name ? data.artist ? data.name
     album: data.album?.name ? ''
     length: data.length ? 0
 
