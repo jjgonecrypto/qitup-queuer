@@ -6,7 +6,7 @@
       queue: function() {
         var parts;
         parts = window.location.search.match(/(?:\&q\=|\?q\=)[^&|^$]+/);
-        if (!parts.length) return;
+        if (!(parts != null ? parts.length : void 0)) return "";
         return parts[0].substr(3);
       },
       href: function() {

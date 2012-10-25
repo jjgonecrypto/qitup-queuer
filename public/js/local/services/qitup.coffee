@@ -2,7 +2,7 @@ define [], () ->
   exports = 
     queue: () ->
       parts = window.location.search.match(/(?:\&q\=|\?q\=)[^&|^$]+/)
-      return unless parts.length
+      return "" unless parts?.length
       parts[0].substr(3)
 
     href: () -> 
