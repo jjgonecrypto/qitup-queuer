@@ -3,32 +3,41 @@
   background: url("/img/loader.gif") center no-repeat;
 }
 .helper {
-  font-size: 0.9em;
   color: #bbb;
 }
 .results {
   margin-top: 0.5em;
 }
-.tracks,
-.artists,
-.albums {
-  font-size: 0.9em;
+.tracks > li,
+.artists > li,
+.albums > li {
+  padding: 0.3em 0;
 }
 .tracks > li:nth-child(odd),
 .artists > li:nth-child(odd),
 .albums > li:nth-child(odd) {
   background-color: #ddd;
 }
+.tracks a,
+.artists a,
+.albums a {
+  font-size: 100%;
+}
 .track,
 .album {
-  display: inline-block;
-  width: 20em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+h3 {
+  clear: both;
+}
+.requests {
+  clear: both;
+}
 .requests .request {
   clear: both;
+  overflow: hidden;
 }
 .requests .request:nth-child(odd) {
   background-color: #ddd;
@@ -41,11 +50,13 @@
   width: 8em;
   padding: 1em;
   font-size: 0.9em;
+  height: 2em;
   text-align: center;
 }
 .requests .request iframe,
 .requests .request button {
-  width: 150px;
+  float: left;
+  width: 100px;
   height: 28px;
   margin: 1em 0px;
 }
@@ -56,9 +67,8 @@
   font-weight: bold;
   border: 1px solid #999;
   border-radius: 4px;
-  padding-left: 10px;
-  margin-top: 16px;
-  margin-right: 1em;
+  padding-left: 15px;
+  margin-top: 18px;
 }
 .requests .request button.post-to-facebook:hover {
   background-color: #ddd;

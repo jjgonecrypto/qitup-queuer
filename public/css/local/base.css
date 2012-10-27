@@ -2,13 +2,17 @@ html,
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 body {
   background-color: #ecebe8;
 }
 input {
-  font-size: 16px;
+  font-size: 22px;
+}
+a {
+  color: #4383fa;
+  font-weight: bold;
 }
 .content,
 .facebook {
@@ -19,6 +23,10 @@ input {
   background-color: #000;
   color: #fff;
   padding-left: 1em;
+}
+.header a {
+  color: #50ccff;
+  text-decoration: none;
 }
 ul {
   margin: 0;
@@ -32,7 +40,7 @@ ul.no-bullets > li {
   list-style-type: none;
 }
 input.query {
-  width: 20em;
+  width: 12em;
 }
 h3 {
   margin-bottom: 0;

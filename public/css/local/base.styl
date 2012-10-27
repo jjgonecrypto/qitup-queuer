@@ -1,5 +1,5 @@
 $spotify-grey = #ecebe8
-$font-size = 16px
+$font-size = 18px
 
 html, body
   margin 0
@@ -10,7 +10,12 @@ body
   background-color $spotify-grey
 
 input
-  font-size $font-size
+  font-size $font-size+4
+
+a 
+  //color #dc152c
+  color #4383fa
+  font-weight bold
 
 .content, .facebook
   margin 1em
@@ -20,6 +25,9 @@ input
   background-color black
   color white
   padding-left 1em
+  a 
+    color #50ccff
+    text-decoration none
 
 ul
   margin 0
@@ -35,7 +43,7 @@ ul.no-bullets
     list-style-type none
 
 input.query
-  width 20em
+  width 12em
 
 h3 
   margin-bottom 0
