@@ -13,6 +13,7 @@ define [], () ->
     queue: () -> findPart "q", window.location.search
 
     href: () -> 
+      return "http://live.qitup.fm"
       window.location.origin + window.location.pathname + window.location.search
 
     preserve: () ->
@@ -34,3 +35,7 @@ define [], () ->
         rCache container[parts[0]], parts.slice(1).join('.')
 
       rCache cache, item  
+
+    facebookLoginUri: () ->
+      appID = "504698779547671"
+      "https://www.facebook.com/dialog/oauth?client_id=#{appID}&redirect_uri=#{encodeURIComponent(exports.href())}&response_type=token&scope=publish_stream"
