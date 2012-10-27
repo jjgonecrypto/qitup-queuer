@@ -21,7 +21,7 @@
     }
   });
 
-  define(["jquery", "underscore", "Backbone", "./Router"], function($, _, Backbone, Router) {
+  define(["jquery", "underscore", "Backbone", "./Router", "views/Facebook"], function($, _, Backbone, Router, FacebookView) {
     return $(function() {
       new Router().on('viewChange', function(klazz, name, action) {
         return new klazz({
@@ -29,6 +29,9 @@
           action: action
         }).render();
       });
+      new FacebookView({
+        el: '.facebook'
+      }).render();
       return Backbone.history.start();
     });
   });
