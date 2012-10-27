@@ -17,7 +17,15 @@ define [], () ->
 
     preserve: () ->
       token = findPart "access_token", window.location.hash
-      cache.facebook.access_token = token if token.length
+      if token.length
+        cache.facebook.access_token = token 
+        localStorage.setItem "facebook_access_token", token
+      else
+        cache.facebook.access_token = localStorage["facebook_access_token"]
+    
+    socialStatus: () ->
+      facebook: exports.get("facebook.access_token")?.length > 0
+      twitter: false
 
     get: (item) ->
       rCache = (container, chain) ->

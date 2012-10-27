@@ -8,8 +8,11 @@
 
   <div>
     <hr />
-    <a href="https://www.facebook.com/dialog/oauth?client_id=<%= facebookAppID %>&redirect_uri=<%= encodeURIComponent(url) %>&response_type=token&scope=publish_stream,manage_pages">Login to Facebook</a>
-
+    <% if (!status.facebook) { %>
+      <a href="https://www.facebook.com/dialog/oauth?client_id=<%= facebookAppID %>&redirect_uri=<%= encodeURIComponent(url) %>&response_type=token&scope=publish_stream,manage_pages">Login to Facebook</a>
+    <% } else { %>
+      (logged in to facebook)
+    <% } %>
     <!--
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
