@@ -29,8 +29,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+h3 {
+  clear: both;
+}
+.requests {
+  clear: both;
+}
 .requests .request {
   clear: both;
+  overflow: hidden;
 }
 .requests .request:nth-child(odd) {
   background-color: #ddd;
@@ -43,11 +50,13 @@
   width: 8em;
   padding: 1em;
   font-size: 0.9em;
+  height: 2em;
   text-align: center;
 }
 .requests .request iframe,
 .requests .request button {
-  width: 150px;
+  float: left;
+  width: 100px;
   height: 28px;
   margin: 1em 0px;
 }
@@ -58,9 +67,8 @@
   font-weight: bold;
   border: 1px solid #999;
   border-radius: 4px;
-  padding-left: 10px;
-  margin-top: 16px;
-  margin-right: 1em;
+  padding-left: 15px;
+  margin-top: 18px;
 }
 .requests .request button.post-to-facebook:hover {
   background-color: #ddd;
