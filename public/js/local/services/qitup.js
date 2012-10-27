@@ -34,6 +34,13 @@
           return cache.facebook.access_token = localStorage["facebook_access_token"];
         }
       },
+      socialStatus: function() {
+        var _ref;
+        return {
+          facebook: ((_ref = exports.get("facebook.access_token")) != null ? _ref.length : void 0) > 0,
+          twitter: false
+        };
+      },
       get: function(item) {
         var rCache;
         rCache = function(container, chain) {

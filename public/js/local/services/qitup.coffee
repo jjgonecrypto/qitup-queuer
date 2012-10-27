@@ -22,7 +22,11 @@ define [], () ->
         localStorage.setItem "facebook_access_token", token
       else
         cache.facebook.access_token = localStorage["facebook_access_token"]
-        
+    
+    socialStatus: () ->
+      facebook: exports.get("facebook.access_token")?.length > 0
+      twitter: false
+
     get: (item) ->
       rCache = (container, chain) ->
         parts = chain.split('.')
