@@ -28,7 +28,10 @@
         var token;
         token = findPart("access_token", window.location.hash);
         if (token.length) {
-          return cache.facebook.access_token = token;
+          cache.facebook.access_token = token;
+          return localStorage.setItem("facebook_access_token", token);
+        } else {
+          return cache.facebook.access_token = localStorage["facebook_access_token"];
         }
       },
       get: function(item) {
