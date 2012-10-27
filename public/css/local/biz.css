@@ -38,8 +38,10 @@
 }
 .requests .request label {
   float: left;
-  width: 10em;
+  width: 8em;
   padding: 1em;
+  font-size: 0.9em;
+  text-align: center;
 }
 .requests .request iframe,
 .requests .request button {
