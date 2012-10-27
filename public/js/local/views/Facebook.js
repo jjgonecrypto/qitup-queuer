@@ -8,8 +8,7 @@
       },
       render: function() {
         this.$el.html(_.template(viewTemplate, {
-          url: qitup.href(),
-          facebookAppID: "504698779547671",
+          facebookLoginUri: qitup.facebookLoginUri(),
           status: qitup.socialStatus()
         }));
         return this;

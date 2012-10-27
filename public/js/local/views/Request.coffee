@@ -40,16 +40,20 @@ define [
 
     onFacebookPost: (evt) -> 
       evt.preventDefault()
-      return console.log "not signed into fbook" if !qitup.get "facebook.access_token"
+      return window.location.href = qitup.facebookLoginUri() if !qitup.get "facebook.access_token"
+      $(evt.target).attr("disabled", "disabled")
       $.ajax
         url: "https://graph.facebook.com/qitup/feed?method=POST&message=#{@$(evt.target).data("message")}&access_token=#{qitup.get("facebook.access_token")}" 
-      .done () -> 
-        console.log "success!"
+        dataType: "jsonp"
+      .done (data) => 
+        if data.error?.code is 190 and data.error?.error_subcode is 463
+          window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook
+        else
+          @$el.html "Requested successfully."
       .fail (err) -> 
-        console.log "fail :(", err
-      .always () =>
-        @$el.html("Requested!")
-
+        window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook
+      .always () ->
+        $(evt.target).removeAttr("disabled")
 
     events:
       'click .post-to-facebook': 'onFacebookPost'
