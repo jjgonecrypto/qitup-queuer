@@ -3,7 +3,7 @@
   <% if (!status.facebook) { %>
     <a class="facebook-login" href="https://www.facebook.com/dialog/oauth?client_id=<%= facebookAppID %>&redirect_uri=<%= encodeURIComponent(url) %>&response_type=token&scope=publish_stream">Login to Facebook</a>
   <% } else { %>
-    (logged in to facebook)
+    <span class="helper">(logged in to facebook)</span>
   <% } %>
   <!--
   <div id="fb-root"></div>
