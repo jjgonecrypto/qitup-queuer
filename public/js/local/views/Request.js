@@ -73,16 +73,23 @@
         var _this = this;
         evt.preventDefault();
         if (!qitup.get("facebook.access_token")) {
-          return console.log("not signed into fbook");
+          return window.location.href = qitup.facebookLoginUri();
         }
+        $(evt.target).attr("disabled", "disabled");
         return $.ajax({
-          url: "https://graph.facebook.com/qitup/feed?method=POST&message=" + (this.$(evt.target).data("message")) + "&access_token=" + (qitup.get("facebook.access_token"))
-        }).done(function() {
-          return console.log("success!");
+          url: "https://graph.facebook.com/qitup/feed?method=POST&message=" + (this.$(evt.target).data("message")) + "&access_token=" + (qitup.get("facebook.access_token")),
+          dataType: "jsonp"
+        }).done(function(data) {
+          var _ref, _ref1;
+          if (((_ref = data.error) != null ? _ref.code : void 0) === 190 && ((_ref1 = data.error) != null ? _ref1.error_subcode : void 0) === 463) {
+            return window.location.href = qitup.facebookLoginUri();
+          } else {
+            return _this.$el.html("Requested successfully.");
+          }
         }).fail(function(err) {
-          return console.log("fail :(", err);
+          return window.location.href = qitup.facebookLoginUri();
         }).always(function() {
-          return _this.$el.html("Requested!");
+          return $(evt.target).removeAttr("disabled");
         });
       },
       events: {
