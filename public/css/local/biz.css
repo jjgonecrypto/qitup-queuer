@@ -48,6 +48,25 @@
   margin: 1em 0px;
 }
 .requests .request button.post-to-facebook {
-  background: #eee url("/img/facebook.png") left no-repeat;
+  float: left;
+  background: #eee url("/img/facebook.png") 2px no-repeat;
   cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-top: 16px;
+  margin-right: 1em;
+}
+.requests .request button.post-to-facebook:hover {
+  background-color: #ddd;
+}
+.facebook-login {
+  display: block;
+  padding: 1em;
+  background: #add8e6 url("/img/facebook.png") 10px no-repeat;
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  padding-left: 40px;
 }

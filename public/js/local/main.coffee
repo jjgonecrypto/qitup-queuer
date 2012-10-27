@@ -13,12 +13,16 @@ require.config
       deps: ["underscore", "jquery"]
       exports: "Backbone"
 
-define ["jquery", "underscore", "Backbone", "./Router"], ($, _, Backbone, Router) ->
+define ["jquery", "underscore", "Backbone", "./Router", "views/Facebook"], ($, _, Backbone, Router, FacebookView) ->
   $ ->
     new Router().on 'viewChange', (klazz, name, action) ->
       new klazz
         el: '.content'
         action: action
       .render()  
+
+    new FacebookView
+      el: '.facebook'
+    .render()
 
     Backbone.history.start()

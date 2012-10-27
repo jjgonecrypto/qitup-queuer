@@ -47,6 +47,9 @@ define [
         console.log "success!"
       .fail (err) -> 
         console.log "fail :(", err
+      .always () =>
+        @$el.html("Requested!")
+
 
     events:
       'click .post-to-facebook': 'onFacebookPost'
