@@ -1,7 +1,7 @@
 
   <hr />
   <% if (!status.facebook) { %>
-    <a href="https://www.facebook.com/dialog/oauth?client_id=<%= facebookAppID %>&redirect_uri=<%= encodeURIComponent(url) %>&response_type=token&scope=publish_stream">Login to Facebook</a>
+    <a class="facebook-login" href="https://www.facebook.com/dialog/oauth?client_id=<%= facebookAppID %>&redirect_uri=<%= encodeURIComponent(url) %>&response_type=token&scope=publish_stream">Login to Facebook</a>
   <% } else { %>
     (logged in to facebook)
   <% } %>
