@@ -71,7 +71,6 @@
       },
       onFacebookPost: function(evt) {
         evt.preventDefault();
-        console.log(this.$(evt.target).data("message"));
         if (!qitup.get("facebook.access_token")) {
           return console.log("not signed into fbook");
         }

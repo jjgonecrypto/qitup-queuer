@@ -12,11 +12,10 @@
         return qitup.preserve();
       },
       render: function() {
-        var url;
-        url = "http://live.qitup.fm?q=qituptest" || qitup.href();
         this.$el.html(_.template(viewTemplate, {
-          url: url,
-          facebookAppID: "504698779547671"
+          url: qitup.href(),
+          facebookAppID: "504698779547671",
+          status: qitup.socialStatus()
         }));
         this.$('.search').html(new Search({
           entries: entries

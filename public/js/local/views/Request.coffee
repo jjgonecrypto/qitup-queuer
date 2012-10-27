@@ -40,7 +40,6 @@ define [
 
     onFacebookPost: (evt) -> 
       evt.preventDefault()
-      console.log @$(evt.target).data "message"
       return console.log "not signed into fbook" if !qitup.get "facebook.access_token"
       $.ajax
         url: "https://graph.facebook.com/qitup/feed?method=POST&message=#{@$(evt.target).data("message")}&access_token=#{qitup.get("facebook.access_token")}" 
