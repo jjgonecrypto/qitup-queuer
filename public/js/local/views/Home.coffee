@@ -18,8 +18,11 @@ define [
         artists: new Artists()
         albums: new Albums() 
 
+      qitup.preserve() #save facebook token if exists
+
     render: ->
-      @$el.html _.template(viewTemplate, url: qitup.href(), facebookAppID: "504698779547671")
+      url = "http://live.qitup.fm?q=qituptest" or qitup.href()
+      @$el.html _.template(viewTemplate, url: url, facebookAppID: "504698779547671")
       @$('.search').html new Search(entries: entries).render().el
       @$('.results').html new Results(entries: entries).render().el
       @
