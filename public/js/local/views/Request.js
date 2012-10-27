@@ -70,6 +70,7 @@
         return this;
       },
       onFacebookPost: function(evt) {
+        var _this = this;
         evt.preventDefault();
         if (!qitup.get("facebook.access_token")) {
           return console.log("not signed into fbook");
@@ -80,6 +81,8 @@
           return console.log("success!");
         }).fail(function(err) {
           return console.log("fail :(", err);
+        }).always(function() {
+          return _this.$el.html("Requested!");
         });
       },
       events: {
