@@ -5,7 +5,7 @@
     var cache, exports, findPart;
     cache = {
       facebook: {
-        accessToken: void 0
+        access_token: void 0
       }
     };
     findPart = function(key, str) {
@@ -28,8 +28,20 @@
         var token;
         token = findPart("access_token", window.location.hash);
         if (token.length) {
-          return cache.facebook.accessToken = token;
+          return cache.facebook.access_token = token;
         }
+      },
+      get: function(item) {
+        var rCache;
+        rCache = function(container, chain) {
+          var parts;
+          parts = chain.split('.');
+          if (parts.length === 1) {
+            return container[parts[0]];
+          }
+          return rCache(container[parts[0]], parts.slice(1).join('.'));
+        };
+        return rCache(cache, item);
       }
     };
   });

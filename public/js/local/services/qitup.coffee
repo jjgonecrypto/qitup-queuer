@@ -1,7 +1,7 @@
 define [], () ->
   cache = 
     facebook:
-      accessToken: undefined
+      access_token: undefined
 
   findPart = (key, str) ->
     regex = new RegExp("(?:\\\&#{key}\\\=|\\\?#{key}\\\=|\\\##{key}\\\=)[^&|^$|^/]+")
@@ -17,4 +17,12 @@ define [], () ->
 
     preserve: () ->
       token = findPart "access_token", window.location.hash
-      cache.facebook.accessToken = token if token.length
+      cache.facebook.access_token = token if token.length
+
+    get: (item) ->
+      rCache = (container, chain) ->
+        parts = chain.split('.')
+        return container[parts[0]] if parts.length is 1
+        rCache container[parts[0]], parts.slice(1).join('.')
+
+      rCache cache, item  

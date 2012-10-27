@@ -1,4 +1,5 @@
 define [
+  "jquery"
   "Backbone"
   "underscore"
   "collections/entries"
@@ -6,7 +7,7 @@ define [
   "services/qitup"
   "text!lib/twitter-button.html"
   "text!lib/facebook-button.html"
-], (Backbone, _, entries, entry, qitup, twitter, facebook) ->
+], ($, Backbone, _, entries, entry, qitup, twitter, facebook) ->
   i = 0
   requests = (type, item) ->
     template = (req) -> _.template(type, url: qitup.href(), i: i++, queue: qitup.queue(), request: req)  
@@ -36,3 +37,17 @@ define [
         html = _.template(template, twitter: requests(twitter, @item.toJSON()), facebook: requests(facebook, @item.toJSON()), item: @item.toJSON(), queue: qitup.queue(), url: qitup.href())
         @$el.html html
       @
+
+    onFacebookPost: (evt) -> 
+      evt.preventDefault()
+      console.log @$(evt.target).data "message"
+      return console.log "not signed into fbook" if !qitup.get "facebook.access_token"
+      $.ajax
+        url: "https://graph.facebook.com/qitup/feed?method=POST&message=#{@$(evt.target).data("message")}&access_token=#{qitup.get("facebook.access_token")}" 
+      .done () -> 
+        console.log "success!"
+      .fail (err) -> 
+        console.log "fail :(", err
+
+    events:
+      'click .post-to-facebook': 'onFacebookPost'
