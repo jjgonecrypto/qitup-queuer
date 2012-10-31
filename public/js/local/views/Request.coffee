@@ -51,6 +51,7 @@ define [
         if data.error?.code is 190 and data.error?.error_subcode is 463
           window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook
         else
+          @undelegateEvents() #ensure events map binders are removed
           @$el.html "Requested successfully."
       .fail (err) -> 
         window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook

@@ -79,6 +79,7 @@
           if (((_ref = data.error) != null ? _ref.code : void 0) === 190 && ((_ref2 = data.error) != null ? _ref2.error_subcode : void 0) === 463) {
             return window.location.href = qitup.facebookLoginUri();
           } else {
+            _this.undelegateEvents();
             return _this.$el.html("Requested successfully.");
           }
         }).fail(function(err) {
