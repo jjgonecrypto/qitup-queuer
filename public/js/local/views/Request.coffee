@@ -9,6 +9,7 @@ define [
   "text!lib/facebook-button.html"
 ], ($, Backbone, _, entries, entry, qitup, twitter, facebook) ->
   i = 0
+  ajax = undefined
   requests = (type, item) ->
     template = (req) -> _.template(type, url: qitup.href(), i: i++, queue: qitup.queue(), request: req)  
     actions = (prefix = "") ->
@@ -41,19 +42,22 @@ define [
     onFacebookPost: (evt) -> 
       evt.preventDefault()
       return window.location.href = qitup.facebookLoginUri() if !qitup.get "facebook.access_token"
+      return if ajax
       $(evt.target).attr("disabled", "disabled")
-      $.ajax
+      ajax = $.ajax
         url: "https://graph.facebook.com/qitup/feed?method=POST&message=#{@$(evt.target).data("message")}&access_token=#{qitup.get("facebook.access_token")}" 
         dataType: "jsonp"
       .done (data) => 
         if data.error?.code is 190 and data.error?.error_subcode is 463
           window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook
         else
+          @undelegateEvents() #ensure events map binders are removed
           @$el.html "Requested successfully."
       .fail (err) -> 
         window.location.href = qitup.facebookLoginUri() #expired so relogin to fbook
       .always () ->
         $(evt.target).removeAttr("disabled")
+        ajax = undefined
 
     events:
       'click .post-to-facebook': 'onFacebookPost'
